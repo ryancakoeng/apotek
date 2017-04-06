@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="32043be4008d4cd7b990fa5569a5bc21" Name="Diagram1">
+        <EntityTypeShape EntityType="apotek_dbModel1.faktur_penjualan" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="apotek_dbModel1.faktur_supply" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="apotek_dbModel1.jeni" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="apotek_dbModel1.karyawan" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="apotek_dbModel1.obat" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="apotek_dbModel1.pelanggan" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="apotek_dbModel1.supplier" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="apotek_dbModel1.FK_faktur_penjualan_karyawan" ManuallyRouted="false" />
+        <AssociationConnector Association="apotek_dbModel1.FK_faktur_penjualan_obat" ManuallyRouted="false" />
+        <AssociationConnector Association="apotek_dbModel1.FK_faktur_penjualan_pelanggan" ManuallyRouted="false" />
+        <AssociationConnector Association="apotek_dbModel1.FK_faktur_supply_karyawan" ManuallyRouted="false" />
+        <AssociationConnector Association="apotek_dbModel1.FK_faktur_supply_obat" ManuallyRouted="false" />
+        <AssociationConnector Association="apotek_dbModel1.FK_faktur_supply_supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="apotek_dbModel1.FK_obat_jenis" ManuallyRouted="false" />
+        <AssociationConnector Association="apotek_dbModel1.FK_obat_supplier" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="apotek_dbModel1" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="apotek_dbEntities2" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="faktur_penjualan" EntityType="apotek_dbModel1.faktur_penjualan" />
+    <EntitySet Name="faktur_supply" EntityType="apotek_dbModel1.faktur_supply" />
+    <EntitySet Name="jenis" EntityType="apotek_dbModel1.jeni" />
+    <EntitySet Name="karyawans" EntityType="apotek_dbModel1.karyawan" />
+    <EntitySet Name="obats" EntityType="apotek_dbModel1.obat" />
+    <EntitySet Name="pelanggans" EntityType="apotek_dbModel1.pelanggan" />
+    <EntitySet Name="suppliers" EntityType="apotek_dbModel1.supplier" />
+    <AssociationSet Name="FK_faktur_penjualan_karyawan" Association="apotek_dbModel1.FK_faktur_penjualan_karyawan">
+      <End Role="karyawan" EntitySet="karyawans" />
+      <End Role="faktur_penjualan" EntitySet="faktur_penjualan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faktur_penjualan_obat" Association="apotek_dbModel1.FK_faktur_penjualan_obat">
+      <End Role="obat" EntitySet="obats" />
+      <End Role="faktur_penjualan" EntitySet="faktur_penjualan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faktur_penjualan_pelanggan" Association="apotek_dbModel1.FK_faktur_penjualan_pelanggan">
+      <End Role="pelanggan" EntitySet="pelanggans" />
+      <End Role="faktur_penjualan" EntitySet="faktur_penjualan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faktur_supply_karyawan" Association="apotek_dbModel1.FK_faktur_supply_karyawan">
+      <End Role="karyawan" EntitySet="karyawans" />
+      <End Role="faktur_supply" EntitySet="faktur_supply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faktur_supply_obat" Association="apotek_dbModel1.FK_faktur_supply_obat">
+      <End Role="obat" EntitySet="obats" />
+      <End Role="faktur_supply" EntitySet="faktur_supply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faktur_supply_supplier" Association="apotek_dbModel1.FK_faktur_supply_supplier">
+      <End Role="supplier" EntitySet="suppliers" />
+      <End Role="faktur_supply" EntitySet="faktur_supply" />
+    </AssociationSet>
+    <AssociationSet Name="FK_obat_jenis" Association="apotek_dbModel1.FK_obat_jenis">
+      <End Role="jenis" EntitySet="jenis" />
+      <End Role="obat" EntitySet="obats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_obat_supplier" Association="apotek_dbModel1.FK_obat_supplier">
+      <End Role="supplier" EntitySet="suppliers" />
+      <End Role="obat" EntitySet="obats" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="faktur_penjualan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="no_faktur" Type="String" Nullable="false" MaxLength="7" Unicode="false" FixedLength="true" />
+    <Property Name="id_obat" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="tanggal" Type="DateTime" Precision="0" />
+    <Property Name="id_pelanggan" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="id_karyawan" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="total_bayar" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="jumlah_obat" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="karyawan" Relationship="apotek_dbModel1.FK_faktur_penjualan_karyawan" FromRole="faktur_penjualan" ToRole="karyawan" />
+    <NavigationProperty Name="obat" Relationship="apotek_dbModel1.FK_faktur_penjualan_obat" FromRole="faktur_penjualan" ToRole="obat" />
+    <NavigationProperty Name="pelanggan" Relationship="apotek_dbModel1.FK_faktur_penjualan_pelanggan" FromRole="faktur_penjualan" ToRole="pelanggan" />
+  </EntityType>
+  <EntityType Name="faktur_supply">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="no_faktur" Type="String" Nullable="false" MaxLength="7" Unicode="false" FixedLength="true" />
+    <Property Name="id_obat" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="tanggal" Type="DateTime" Precision="0" />
+    <Property Name="id_supplier" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="id_karyawan" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="total_bayar" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="jumlah_obat" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="karyawan" Relationship="apotek_dbModel1.FK_faktur_supply_karyawan" FromRole="faktur_supply" ToRole="karyawan" />
+    <NavigationProperty Name="obat" Relationship="apotek_dbModel1.FK_faktur_supply_obat" FromRole="faktur_supply" ToRole="obat" />
+    <NavigationProperty Name="supplier" Relationship="apotek_dbModel1.FK_faktur_supply_supplier" FromRole="faktur_supply" ToRole="supplier" />
+  </EntityType>
+  <EntityType Name="jeni">
+    <Key>
+      <PropertyRef Name="id_jenis" />
+    </Key>
+    <Property Name="id_jenis" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="nama_jenis" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="obats" Relationship="apotek_dbModel1.FK_obat_jenis" FromRole="jenis" ToRole="obat" />
+  </EntityType>
+  <EntityType Name="karyawan">
+    <Key>
+      <PropertyRef Name="id_karyawan" />
+    </Key>
+    <Property Name="id_karyawan" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="nama" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+    <Property Name="alamat" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="telp" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="username" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="25" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="faktur_penjualan" Relationship="apotek_dbModel1.FK_faktur_penjualan_karyawan" FromRole="karyawan" ToRole="faktur_penjualan" />
+    <NavigationProperty Name="faktur_supply" Relationship="apotek_dbModel1.FK_faktur_supply_karyawan" FromRole="karyawan" ToRole="faktur_supply" />
+  </EntityType>
+  <EntityType Name="obat">
+    <Key>
+      <PropertyRef Name="id_obat" />
+    </Key>
+    <Property Name="id_obat" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="nama" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="id_jenis" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="harga" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="id_supplier" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <NavigationProperty Name="faktur_penjualan" Relationship="apotek_dbModel1.FK_faktur_penjualan_obat" FromRole="obat" ToRole="faktur_penjualan" />
+    <NavigationProperty Name="faktur_supply" Relationship="apotek_dbModel1.FK_faktur_supply_obat" FromRole="obat" ToRole="faktur_supply" />
+    <NavigationProperty Name="jeni" Relationship="apotek_dbModel1.FK_obat_jenis" FromRole="obat" ToRole="jenis" />
+    <NavigationProperty Name="supplier" Relationship="apotek_dbModel1.FK_obat_supplier" FromRole="obat" ToRole="supplier" />
+  </EntityType>
+  <EntityType Name="pelanggan">
+    <Key>
+      <PropertyRef Name="id_pelanggan" />
+    </Key>
+    <Property Name="id_pelanggan" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="nama" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+    <Property Name="alamat" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="jenis_kelamin" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="faktur_penjualan" Relationship="apotek_dbModel1.FK_faktur_penjualan_pelanggan" FromRole="pelanggan" ToRole="faktur_penjualan" />
+  </EntityType>
+  <EntityType Name="supplier">
+    <Key>
+      <PropertyRef Name="id_supplier" />
+    </Key>
+    <Property Name="id_supplier" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="true" />
+    <Property Name="nama" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+    <Property Name="alamat" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="telp" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="faktur_supply" Relationship="apotek_dbModel1.FK_faktur_supply_supplier" FromRole="supplier" ToRole="faktur_supply" />
+    <NavigationProperty Name="obats" Relationship="apotek_dbModel1.FK_obat_supplier" FromRole="supplier" ToRole="obat" />
+  </EntityType>
+  <Association Name="FK_faktur_penjualan_karyawan">
+    <End Role="karyawan" Type="apotek_dbModel1.karyawan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="faktur_penjualan" Type="apotek_dbModel1.faktur_penjualan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="karyawan">
+        <PropertyRef Name="id_karyawan" />
+      </Principal>
+      <Dependent Role="faktur_penjualan">
+        <PropertyRef Name="id_karyawan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faktur_penjualan_obat">
+    <End Role="obat" Type="apotek_dbModel1.obat" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="faktur_penjualan" Type="apotek_dbModel1.faktur_penjualan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="obat">
+        <PropertyRef Name="id_obat" />
+      </Principal>
+      <Dependent Role="faktur_penjualan">
+        <PropertyRef Name="id_obat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faktur_penjualan_pelanggan">
+    <End Role="pelanggan" Type="apotek_dbModel1.pelanggan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="faktur_penjualan" Type="apotek_dbModel1.faktur_penjualan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pelanggan">
+        <PropertyRef Name="id_pelanggan" />
+      </Principal>
+      <Dependent Role="faktur_penjualan">
+        <PropertyRef Name="id_pelanggan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faktur_supply_karyawan">
+    <End Role="karyawan" Type="apotek_dbModel1.karyawan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="faktur_supply" Type="apotek_dbModel1.faktur_supply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="karyawan">
+        <PropertyRef Name="id_karyawan" />
+      </Principal>
+      <Dependent Role="faktur_supply">
+        <PropertyRef Name="id_karyawan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faktur_supply_obat">
+    <End Role="obat" Type="apotek_dbModel1.obat" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="faktur_supply" Type="apotek_dbModel1.faktur_supply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="obat">
+        <PropertyRef Name="id_obat" />
+      </Principal>
+      <Dependent Role="faktur_supply">
+        <PropertyRef Name="id_obat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faktur_supply_supplier">
+    <End Role="supplier" Type="apotek_dbModel1.supplier" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="faktur_supply" Type="apotek_dbModel1.faktur_supply" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier">
+        <PropertyRef Name="id_supplier" />
+      </Principal>
+      <Dependent Role="faktur_supply">
+        <PropertyRef Name="id_supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_obat_jenis">
+    <End Role="jenis" Type="apotek_dbModel1.jeni" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="obat" Type="apotek_dbModel1.obat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jenis">
+        <PropertyRef Name="id_jenis" />
+      </Principal>
+      <Dependent Role="obat">
+        <PropertyRef Name="id_jenis" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_obat_supplier">
+    <End Role="supplier" Type="apotek_dbModel1.supplier" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="obat" Type="apotek_dbModel1.obat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="supplier">
+        <PropertyRef Name="id_supplier" />
+      </Principal>
+      <Dependent Role="obat">
+        <PropertyRef Name="id_supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

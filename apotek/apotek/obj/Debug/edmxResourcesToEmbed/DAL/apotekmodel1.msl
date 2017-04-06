@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="apotek_dbModel1StoreContainer" CdmEntityContainer="apotek_dbEntities2">
+    <EntitySetMapping Name="faktur_penjualan">
+      <EntityTypeMapping TypeName="apotek_dbModel1.faktur_penjualan">
+        <MappingFragment StoreEntitySet="faktur_penjualan">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="no_faktur" ColumnName="no_faktur" />
+          <ScalarProperty Name="id_obat" ColumnName="id_obat" />
+          <ScalarProperty Name="tanggal" ColumnName="tanggal" />
+          <ScalarProperty Name="id_pelanggan" ColumnName="id_pelanggan" />
+          <ScalarProperty Name="id_karyawan" ColumnName="id_karyawan" />
+          <ScalarProperty Name="total_bayar" ColumnName="total_bayar" />
+          <ScalarProperty Name="jumlah_obat" ColumnName="jumlah_obat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="faktur_supply">
+      <EntityTypeMapping TypeName="apotek_dbModel1.faktur_supply">
+        <MappingFragment StoreEntitySet="faktur_supply">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="no_faktur" ColumnName="no_faktur" />
+          <ScalarProperty Name="id_obat" ColumnName="id_obat" />
+          <ScalarProperty Name="tanggal" ColumnName="tanggal" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="id_karyawan" ColumnName="id_karyawan" />
+          <ScalarProperty Name="total_bayar" ColumnName="total_bayar" />
+          <ScalarProperty Name="jumlah_obat" ColumnName="jumlah_obat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jenis">
+      <EntityTypeMapping TypeName="apotek_dbModel1.jeni">
+        <MappingFragment StoreEntitySet="jenis">
+          <ScalarProperty Name="id_jenis" ColumnName="id_jenis" />
+          <ScalarProperty Name="nama_jenis" ColumnName="nama_jenis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="karyawans">
+      <EntityTypeMapping TypeName="apotek_dbModel1.karyawan">
+        <MappingFragment StoreEntitySet="karyawan">
+          <ScalarProperty Name="id_karyawan" ColumnName="id_karyawan" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="alamat" ColumnName="alamat" />
+          <ScalarProperty Name="telp" ColumnName="telp" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="obats">
+      <EntityTypeMapping TypeName="apotek_dbModel1.obat">
+        <MappingFragment StoreEntitySet="obat">
+          <ScalarProperty Name="id_obat" ColumnName="id_obat" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="id_jenis" ColumnName="id_jenis" />
+          <ScalarProperty Name="harga" ColumnName="harga" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pelanggans">
+      <EntityTypeMapping TypeName="apotek_dbModel1.pelanggan">
+        <MappingFragment StoreEntitySet="pelanggan">
+          <ScalarProperty Name="id_pelanggan" ColumnName="id_pelanggan" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="alamat" ColumnName="alamat" />
+          <ScalarProperty Name="jenis_kelamin" ColumnName="jenis_kelamin" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suppliers">
+      <EntityTypeMapping TypeName="apotek_dbModel1.supplier">
+        <MappingFragment StoreEntitySet="supplier">
+          <ScalarProperty Name="id_supplier" ColumnName="id_supplier" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="alamat" ColumnName="alamat" />
+          <ScalarProperty Name="telp" ColumnName="telp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
